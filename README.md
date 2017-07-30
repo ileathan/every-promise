@@ -1,7 +1,7 @@
 # promise-every
 Currently javascript does not have a `Promise.every()` function, so here it is.
 
-**1. You have an iterable of `Promises`. **
+**1. You have an iterable of **`Promises`**.**
 
 **2. You want to do something when they are all done.**
 
