@@ -20,7 +20,7 @@ Thats it!
 # Instalation
 
 ```bash
-npm install promise-every
+npm install every-promise
 ```
 
 You can also just copypaste this into your code:
