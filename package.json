@@ -1,0 +1,25 @@
+{
+  "name": "every-promise",
+  "version": "1.0.0",
+  "description": "Javascript needed a Promise.every(). Now we have one.",
+  "main": "promise-every.js",
+  "scripts": {
+    "test": "echo \"This package has no test command.\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ileathan/promise-every.git"
+  },
+  "keywords": [
+    "Promise.every()",
+    "Promise.every",
+    "promise-every",
+    "every-promise"
+  ],
+  "author": "leathan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ileathan/promise-every/issues"
+  },
+  "homepage": "https://github.com/ileathan/promise-every#readme"
+}
