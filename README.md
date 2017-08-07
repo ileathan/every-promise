@@ -43,7 +43,7 @@ Promise.every = function(promises, callback) {
 }
 ```
 
-Or even useing the traditional `.then().catch()`.
+Or useing the traditional `.then().catch()`.
 
 ```javascript
 Promise.every = function(promises, callback) {
