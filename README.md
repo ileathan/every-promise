@@ -1,5 +1,5 @@
 # promise-every
-Currently javascript does not have a `Promise.every()` function, so here it is (Same as javascripts native Promise.all but returns an array of results even on failures, plus failures and results seperatly).
+Currently javascript does not have a `Promise.every()` function, so here it is.
 
 **1. You have an iterable of **`Promises`**.**
 
