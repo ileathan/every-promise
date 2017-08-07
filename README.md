@@ -30,20 +30,38 @@ You can also just copypaste this into your code:
 
 ```javascript
 Promise.every = function(promises, callback) {
-  var found = 0;
-  const preserved = new Array(promises.length);
+  var len;
+  const preserved = new Array((len=promises.length));
   const resolved = [];
   const rejected = [];
-  for(let i = 0, l = promises.length; i < l; i++) {
-    promises[i].then(good => {
-      preserved[i] = good;
+  (function recurs(found){
+    promises[found].then(good => {
+      preserved[found] = good;
       resolved.push(good);
-      if(++found === l - 1) callback(preserved, resolved, rejected);
+      if(++found === len) callback(preserved, resolved, rejected);
+      else recurs(found)
     }).catch(bad => {
-      preserved[i] = bad;
+      preserved[found] = bad;
       rejected.push(bad)
-      if(++found === l - 1) callback(preserved, resolved, rejected);
+      if(++found === len) callback(preserved, resolved, rejected);
+      else recurs(found)
    })
+  })(0)
+}
+```
+
+Or even shorter
+
+```javascript
+Promise.every = function(promises, callback) {
+  var found = 0;
+  const preserved = new Array(promises.length);
+  const resolved = [], rejected = [];
+  for(let i = 0, l = promises.length; i < l; i++) {
+    promises[i].then((good, bad) => {
+      preserved[found] = good ? rejected.push(good) && good : rejected.push(bad) && bad;
+      if(++found === l - 1) callback(preserved, resolved, rejected);
+    })
   }
 }
 ```
