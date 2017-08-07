@@ -34,8 +34,11 @@ Promise.every = function(promises, callback) {
   const preserved = new Array((len=promises.length));
   const resolved = [], rejected = [];
 <<<<<<< HEAD
+<<<<<<< HEAD
   (function recurs(found) {
 =======
+=======
+>>>>>>> parent of 78cdfb0... allow concating when minifiying
   (function recurs(found){
     promises[found].then((good, bad) => {
       preserved[found] = good ? resolved.push(good) && good : rejected.push(bad) && bad;
@@ -54,6 +57,9 @@ Promise.every = function(promises, callback) {
   const preserved = new Array((len=promises.length));
   const resolved = [], rejected = [];
   (function recurs(found){
+<<<<<<< HEAD
+>>>>>>> parent of 78cdfb0... allow concating when minifiying
+=======
 >>>>>>> parent of 78cdfb0... allow concating when minifiying
     promises[found].then(good => {
       preserved[found] = good;
