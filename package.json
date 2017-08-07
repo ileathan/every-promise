@@ -1,6 +1,6 @@
 {
   "name": "every-promise",
-  "version": "1.0.0",
+  "version": "2.0.1",
   "description": "Javascript needed a Promise.every(). Now we have one.",
   "main": "promise-every.js",
   "scripts": {
