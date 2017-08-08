@@ -34,8 +34,12 @@ Promise.every = function(promises, callback) {
   const preserved = new Array((len = promises.length));
   const resolved = [], rejected = [];
   (function recurs(found){
-    promises[found].then((good, bad) => {
-      preserved[found] = good ? resolved.push(good) && good : rejected.push(bad) && bad;
+    promises[found].then(good => {
+      preserved[found] = resolved.push(good) && good;
+      if(++found === len) callback(preserved, resolved, rejected);
+      else recurs(found)
+    }, bad => {
+      preserved[found] = rejected.push(bad) && bad;
       if(++found === len) callback(preserved, resolved, rejected);
       else recurs(found)
     })
