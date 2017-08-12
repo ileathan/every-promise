@@ -36,12 +36,10 @@ Promise.every = function(promises, callback) {
   (function recurs(found){
     promises[found].then(good => {
       preserved[found] = resolved.push(good) && good;
-      if(++found === len) callback(preserved, resolved, rejected);
-      else recurs(found)
+      ++found === len ? callback(preserved, resolved, rejected) : recurs(found)
     }, bad => {
       preserved[found] = rejected.push(bad) && bad;
-      if(++found === len) callback(preserved, resolved, rejected);
-      else recurs(found)
+      ++found === len ? callback(preserved, resolved, rejected) : recurs(found)
     })
   })(0)
 };
@@ -58,13 +56,11 @@ Promise.every = function(promises, callback) {
     promises[found].then(good => {
       preserved[found] = good;
       resolved.push(good);
-      if(++found === len) callback(preserved, resolved, rejected);
-      else recurs(found)
+      ++found === len ? callback(preserved, resolved, rejected) : recurs(found)
     }).catch(bad => {
       preserved[found] = bad;
       rejected.push(bad)
-      if(++found === len) callback(preserved, resolved, rejected);
-      else recurs(found)
+      ++found === len ? callback(preserved, resolved, rejected) : recurs(found)
    })
   })(0)
 };
