@@ -5,12 +5,10 @@ module.exports = function(promises, callback) {
   (function recurs(found){
     promises[found].then(good => {
       preserved[found] = resolved.push(good) && good;
-      if(++found === len) callback(preserved, resolved, rejected);
-      else recurs(found)
+      ++found === len ? callback(preserved, resolved, rejected) : recurs(found)
     }, bad => {
       preserved[found] = rejected.push(bad) && bad;
-      if(++found === len) callback(preserved, resolved, rejected);
-      else recurs(found)
+      ++found === len ? callback(preserved, resolved, rejected) : recurs(found)
     })
   })(0)
 };
