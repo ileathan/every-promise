@@ -1,6 +1,6 @@
 module.exports = function(promises, callback) {
   var len;
-  const preserved = new Array((len = promises.length));
+  const preserved = new Array(len = promises.length);
   const resolved = [], rejected = [];
   (function recurs(found){
     promises[found].then(good => {
