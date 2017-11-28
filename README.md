@@ -31,7 +31,7 @@ You can also just copypaste this into your code:
 ```javascript
 Promise.every = function(promises, callback) {
   var len;
-  const preserved = new Array((len = promises.length));
+  const preserved = new Array(len = promises.length);
   const resolved = [], rejected = [];
   (function recurs(found){
     promises[found].then(good => {
@@ -50,7 +50,7 @@ Or useing the traditional `.then().catch()`.
 ```javascript
 Promise.every = function(promises, callback) {
   var len;
-  const preserved = new Array((len = promises.length));
+  const preserved = new Array(len = promises.length);
   const resolved = [], rejected = [];
   (function recurs(found){
     promises[found].then(good => {
